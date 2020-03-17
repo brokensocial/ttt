@@ -1,11 +1,17 @@
 def init_board():
-    """Returns an empty 3-by-3 board (with zeros)."""
-    board = []
+    #Returns an empty 3-by-3 board (with zeros)."""
+
+    board = [
+        [0, 0, 0,],
+        [0, 0, 0,],
+        [0, 0, 0,],
+    ]
     return board
 
 
 def get_move(board, player):
-    """Returns the coordinates of a valid move for player on board."""
+    #Returns the coordinates of a valid move for player on board."""
+    
     row, col = 0, 0
     return row, col
 
