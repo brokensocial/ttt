@@ -20,7 +20,7 @@ def get_move(board, player):
     while input_is_not_valid:
         user_input = input("Please enter coordinates player " + str(player) + ": ").upper()
         print()
-        if len(user_input) > 2:  # validate input length
+        if len(user_input) != 2:  # validate input length
             print("Please enter valid coordinates player " + str(player) + " (e.g. A1, B3) !\n")
         elif not user_input[0].isalpha() or not user_input[1].isdecimal():  # validate if input is alpha and decimal
             print("Please enter valid coordinates player " + str(player) + " (e.g. A1, B3) !\n")
@@ -73,10 +73,14 @@ def tictactoe_game(mode='HUMAN-HUMAN'):
     board = init_board()
 
     # use get_move(), mark(), has_won(), is_full(), and print_board() to create game logic
-    print_board(board)
-    row, col = get_move(board, 1)
-    mark(board, 1, row, col)
-
+    i = 0
+    while(i < 9):
+        player = i % 2 + 1
+        print_board(board)
+        row, col = get_move(board, player)
+        mark(board, player, row, col)
+        i = i + 1
+        has_won(board, player)
     winner = 0
     print_result(winner)
 
