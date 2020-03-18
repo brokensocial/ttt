@@ -50,14 +50,14 @@ def mark(board, player, row, col):
 
 def has_won(board, player):
     if(
-    board[0][0] == board[0][1] == board[0]][2] or
-    board[1][0] == board[1][1] == board[1]][2] or
-    board[2][0] == board[2][1] == board[2]][2] or
-    board[0][0] == board[1][0] == board[2]][0] or
-    board[0][1] == board[1][1] == board[2]][1] or
-    board[0][2] == board[1][2] == board[2]][2] or
-    board[0][0] == board[1][1] == board[2]][2] or
-    board[2][0] == board[1][1] == board[0]][2]):
+    board[0][0] == board[0][1] == board[0][2] == player or
+    board[1][0] == board[1][1] == board[1][2] == player or
+    board[2][0] == board[2][1] == board[2][2] == player or
+    board[0][0] == board[1][0] == board[2][0] == player or
+    board[0][1] == board[1][1] == board[2][1] == player or
+    board[0][2] == board[1][2] == board[2][2] == player or
+    board[0][0] == board[1][1] == board[2][2] == player or
+    board[2][0] == board[1][1] == board[0][2] == player):
         return True
     return False
 
@@ -83,14 +83,22 @@ def tictactoe_game(mode='HUMAN-HUMAN'):
 
     # use get_move(), mark(), has_won(), is_full(), and print_board() to create game logic
     i = 0
-    while(i < 9):
+    player = 1
+    while(i < 9 and not has_won(board, player)):  # and not is_full(board)
         player = i % 2 + 1
         print_board(board)
         row, col = get_move(board, player)
         mark(board, player, row, col)
+        for item in board:
+            print(item, "\n")
         i = i + 1
-        has_won(board, player)
-    winner = 0
+    if(has_won(board, 1)):
+        winner = 1
+    elif(has_won(board, 2)):
+        winner = 2
+    elif is_full(board):
+        winner = 0
+
     print_result(winner)
 
 
