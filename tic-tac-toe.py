@@ -11,7 +11,7 @@ def init_board():
 
 def get_move(board, player):
     #Returns the coordinates of a valid move for player on board."""
-    
+
     row, col = 0, 0
     return row, col
 
@@ -28,7 +28,16 @@ def mark(board, player, row, col):
 
 
 def has_won(board, player):
-    """Returns True if player has won the game."""
+    if(
+    board[0][0] == board[0][1] == board[0]][2] or
+    board[1][0] == board[1][1] == board[1]][2] or
+    board[2][0] == board[2][1] == board[2]][2] or
+    board[0][0] == board[1][0] == board[2]][0] or
+    board[0][1] == board[1][1] == board[2]][1] or
+    board[0][2] == board[1][2] == board[2]][2] or
+    board[0][0] == board[1][1] == board[2]][2] or
+    board[2][0] == board[1][1] == board[0]][2]):
+        return True
     return False
 
 
