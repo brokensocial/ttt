@@ -13,11 +13,6 @@ def init_board():
 
 
 def get_move(board, player):
-<<<<<<< HEAD
-    #Returns the coordinates of a valid move for player on board."""
-
-    row, col = 0, 0
-=======
     """Returns the coordinates of a valid move for player on board."""
     input_is_not_valid = True
     rows = ["A", "B", "C"]
@@ -39,7 +34,6 @@ def get_move(board, player):
             else:
                 input_is_not_valid = False  # input is OK
     row, col = row_index, column_index
->>>>>>> bf7360c36b67acc91c9e424e729578f37f1d3bcf
     return row, col
 
 
